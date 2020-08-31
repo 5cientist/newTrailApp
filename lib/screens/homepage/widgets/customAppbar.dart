@@ -10,21 +10,24 @@ class CustomAppBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.black12),
-              borderRadius: BorderRadius.circular(5.0)),
-          child: Icon(Icons.menu),
-        ),
-        Container(
-          padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.black12),
-              borderRadius: BorderRadius.circular(5.0)),
-          child: Icon(Icons.search),
-        ),
+        CustomIconBtn(customIcon: Icons.menu),
+        CustomIconBtn(customIcon: Icons.search),
       ],
+    );
+  }
+}
+
+class CustomIconBtn extends StatelessWidget {
+  IconData customIcon;
+  CustomIconBtn({@required this.customIcon});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(8),
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black12),
+          borderRadius: BorderRadius.circular(5.0)),
+      child: Icon(customIcon),
     );
   }
 }
