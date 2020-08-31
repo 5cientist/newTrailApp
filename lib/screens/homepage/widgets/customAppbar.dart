@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget {
 }
 
 class CustomIconBtn extends StatelessWidget {
-  IconData customIcon;
+  final IconData customIcon;
   CustomIconBtn({@required this.customIcon});
   @override
   Widget build(BuildContext context) {
