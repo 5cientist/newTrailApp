@@ -6,6 +6,30 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Container(
+          height: 50,
+          width: 120,
+          padding: EdgeInsets.all(10.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30.0),
+            color: Color.fromRGBO(9, 9, 65, 1),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.place,
+                color: Colors.white,
+              ),
+              Text(
+                "Map View",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          )),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 20),
