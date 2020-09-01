@@ -49,6 +49,23 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
+              ListView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(30.0),
+                        child: Image.asset('assets/img/home.jpg'),
+                      ),
+                      Row(
+                        children: [],
+                      )
+                    ],
+                  )
+                ],
+              )
             ],
           ),
         ),
