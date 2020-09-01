@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newtrailapp/theme/theme.dart';
 import 'widgets/customAppbar.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,11 +15,7 @@ class HomePage extends StatelessWidget {
               CustomAppBar(),
               Text(
                 "City",
-                style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: smallGrey,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,17 +50,40 @@ class HomePage extends StatelessWidget {
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 children: [
-                  Column(
+                  Stack(
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(30.0),
-                        child: Image.asset('assets/img/home.jpg'),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(30.0),
+                            child: Image.asset('assets/img/home.jpg'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 10.0,
+                            ),
+                            child: Row(
+                              children: [
+                                Text(
+                                  "\$200.0",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                Text(
+                                  "Kottakkal",
+                                  style: smallGrey,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Text("4 bed rooms / 2 bathrooms"),
+                        ],
                       ),
-                      Row(
-                        children: [],
-                      )
                     ],
-                  )
+                  ),
                 ],
               )
             ],
