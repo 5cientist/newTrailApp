@@ -50,45 +50,94 @@ class HomePage extends StatelessWidget {
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 children: [
-                  Stack(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(30.0),
-                            child: Image.asset('assets/img/home.jpg'),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 10.0,
-                            ),
-                            child: Row(
-                              children: [
-                                Text(
-                                  "\$200.0",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                Text(
-                                  "Kottakkal",
-                                  style: smallGrey,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Text("4 bed rooms / 2 bathrooms"),
-                        ],
-                      ),
-                    ],
-                  ),
+                  Product(
+                      price: "\$199",
+                      place: "kottakkal",
+                      specs: "2 bed room/ 1 bathroom",
+                      imagePath: "assets/img/home.jpg"),
+                  Product(
+                      price: "\$299",
+                      place: "puthanathani",
+                      specs: "4 bed room/ 2 bathroom",
+                      imagePath: "assets/img/home2.jpg"),
+                  Product(
+                      price: "\$399",
+                      place: "Randhathani",
+                      specs: "5 bed room/ 3 bathroom",
+                      imagePath: "assets/img/home.jpg"),
                 ],
               )
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Product extends StatelessWidget {
+  const Product({
+    Key key,
+    this.price,
+    this.place,
+    this.specs,
+    this.imagePath,
+  }) : super(key: key);
+
+  final String price;
+  final String place;
+  final String specs;
+  final String imagePath;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Image.asset(imagePath),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                ),
+                child: Row(
+                  children: [
+                    Text(
+                      price,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      place,
+                      style: smallGrey,
+                    ),
+                  ],
+                ),
+              ),
+              Text("4 bed rooms / 2 bathrooms"),
+            ],
+          ),
+          Positioned(
+            top: 20,
+            right: 20,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+                color: Colors.white,
+              ),
+              padding: EdgeInsets.all(10.0),
+              child: Icon(Icons.favorite_border),
+            ),
+          ),
+        ],
       ),
     );
   }
