@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ShowAllDetails extends StatelessWidget {
-  const ShowAllDetails({Key key}) : super(key: key);
+  static const routeName = '/showalldetails';
 
   @override
   Widget build(BuildContext context) {

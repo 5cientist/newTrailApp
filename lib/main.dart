@@ -18,7 +18,9 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
-      routes: {'/showalldetails': (context) => ShowAllDetails()},
+      routes: {
+        ShowAllDetails.routeName: (context) => ShowAllDetails(),
+      },
       home: HomePage(),
     );
   }

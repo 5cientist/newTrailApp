@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:newtrailapp/screens/showall/showalldetails.dart';
 import 'package:newtrailapp/theme/theme.dart';
 import 'widgets/customAppbar.dart';
 
 class HomePage extends StatelessWidget {
   void onPressedEvent(BuildContext context) {
-    Navigator.of(context).pushNamed('/showalldetails');
+    Navigator.of(context).pushNamed(ShowAllDetails.routeName);
   }
 
   @override
