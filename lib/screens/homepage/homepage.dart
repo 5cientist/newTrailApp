@@ -3,8 +3,8 @@ import 'package:newtrailapp/theme/theme.dart';
 import 'widgets/customAppbar.dart';
 
 class HomePage extends StatelessWidget {
-  void onPressedEvent() {
-    print('object');
+  void onPressedEvent(BuildContext context) {
+    Navigator.of(context).pushNamed('/showalldetails');
   }
 
   @override
@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   GestureDetector(
-                    onTap: onPressedEvent,
+                    onTap: () => onPressedEvent(context),
                     child: Product(
                         price: "\$199",
                         place: "kottakkal",

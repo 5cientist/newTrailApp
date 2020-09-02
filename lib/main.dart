@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:newtrailapp/screens/homepage/homepage.dart';
 
+import 'screens/showall/showalldetails.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
+      routes: {'/showalldetails': (context) => ShowAllDetails()},
       home: HomePage(),
     );
   }
