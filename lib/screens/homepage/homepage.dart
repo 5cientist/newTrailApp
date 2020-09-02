@@ -41,44 +41,22 @@ class HomePage extends StatelessWidget {
                 "City",
                 style: smallGrey,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
-                    child: Text(
-                      "San Francisco",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 34,
-                      ),
-                    ),
-                  ),
-                  Icon(Icons.more_vert),
-                ],
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 60.0,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    GreyBx(title: "For Sale"),
-                    GreyBx(title: "<\$220.00>"),
-                    GreyBx(title: "3 - 4 beds"),
-                    GreyBx(title: "3 - 4 beds"),
-                  ],
-                ),
-              ),
+              titlebar(),
+              priceTagList(context),
               ListView(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 children: [
-                  Product(
-                      price: "\$199",
-                      place: "kottakkal",
-                      specs: "2 bed room/ 1 bathroom",
-                      imagePath: "assets/img/home.jpg"),
+                  GestureDetector(
+                    onTap: () {
+                      print("clicked");
+                    },
+                    child: Product(
+                        price: "\$199",
+                        place: "kottakkal",
+                        specs: "2 bed room/ 1 bathroom",
+                        imagePath: "assets/img/home.jpg"),
+                  ),
                   Product(
                       price: "\$299",
                       place: "puthanathani",
@@ -95,6 +73,41 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Container priceTagList(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 60.0,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          GreyBx(title: "For Sale"),
+          GreyBx(title: "<\$220.00>"),
+          GreyBx(title: "3 - 4 beds"),
+          GreyBx(title: "3 - 4 beds"),
+        ],
+      ),
+    );
+  }
+
+  Row titlebar() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10.0),
+          child: Text(
+            "San Francisco",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 34,
+            ),
+          ),
+        ),
+        Icon(Icons.more_vert),
+      ],
     );
   }
 }
