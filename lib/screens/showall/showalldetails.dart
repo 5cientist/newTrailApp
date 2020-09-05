@@ -5,8 +5,11 @@ class ShowAllDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map argu = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
@@ -24,7 +27,11 @@ class ShowAllDetails extends StatelessWidget {
                 ),
               )
             ],
-          )
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(argu['housename']),
         ],
       ),
     );

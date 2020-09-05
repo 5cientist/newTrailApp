@@ -11,11 +11,18 @@ class HomePage extends StatelessWidget {
 
   List<HomeDataModel> houseData = [
     HomeDataModel(
-      houseName: 'this is house',
+      houseName: 'this is house ',
       bathroom: 2,
       bedroom: 4,
       description: 'asdfdsfsdfsdfdsfsdf',
       price: 222,
+    ),
+    HomeDataModel(
+      houseName: 'this is house',
+      bathroom: 2,
+      bedroom: 4,
+      description: 'asdfdsfsdfsdfdsfsdf',
+      price: 223,
     ),
   ];
 
@@ -62,10 +69,18 @@ class HomePage extends StatelessWidget {
               ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: 1,
+                itemCount: houseData.length,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
-                    onTap: () => onPressedEvent(context),
+                    onTap: () {
+                      Map argument = {
+                        'housename': houseData[index].houseName,
+                        'price': houseData[index].price,
+                      };
+
+                      Navigator.of(context).pushNamed(ShowAllDetails.routeName,
+                          arguments: argument);
+                    },
                     child: Product(
                         price: houseData[0].price.toString(),
                         place: "kottakkal",
