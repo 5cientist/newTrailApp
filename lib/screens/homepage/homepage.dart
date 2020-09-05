@@ -2,11 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:newtrailapp/screens/showall/showalldetails.dart';
 import 'package:newtrailapp/theme/theme.dart';
 import 'widgets/customAppbar.dart';
+import 'package:newtrailapp/models/homeDataModels.dart';
 
 class HomePage extends StatelessWidget {
   void onPressedEvent(BuildContext context) {
     Navigator.of(context).pushNamed(ShowAllDetails.routeName);
   }
+
+  List<HomeDataModel> houseData = [
+    HomeDataModel(
+      houseName: 'this is house',
+      bathroom: 2,
+      bedroom: 4,
+      description: 'asdfdsfsdfsdfdsfsdf',
+      price: 222,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -48,30 +59,21 @@ class HomePage extends StatelessWidget {
               ),
               titlebar(),
               priceTagList(context),
-              ListView(
+              ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                children: [
-                  GestureDetector(
+                itemCount: 1,
+                itemBuilder: (BuildContext context, int index) {
+                  return GestureDetector(
                     onTap: () => onPressedEvent(context),
                     child: Product(
-                        price: "\$199",
+                        price: houseData[0].price.toString(),
                         place: "kottakkal",
                         specs: "2 bed room/ 1 bathroom",
                         imagePath: "assets/img/home.jpg"),
-                  ),
-                  Product(
-                      price: "\$299",
-                      place: "puthanathani",
-                      specs: "4 bed room/ 2 bathroom",
-                      imagePath: "assets/img/home2.jpg"),
-                  Product(
-                      price: "\$399",
-                      place: "Randhathani",
-                      specs: "5 bed room/ 3 bathroom",
-                      imagePath: "assets/img/home.jpg"),
-                ],
-              )
+                  );
+                },
+              ),
             ],
           ),
         ),
