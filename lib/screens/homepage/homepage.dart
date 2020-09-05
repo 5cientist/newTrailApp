@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newtrailapp/screens/Form/formpage.dart';
 import 'package:newtrailapp/screens/showall/showalldetails.dart';
 import 'package:newtrailapp/theme/theme.dart';
 import 'widgets/customAppbar.dart';
@@ -9,19 +10,21 @@ class HomePage extends StatelessWidget {
     Navigator.of(context).pushNamed(ShowAllDetails.routeName);
   }
 
+  final GlobalKey _scaffoldKey = new GlobalKey();
+
   List<HomeDataModel> houseData = [
     HomeDataModel(
-      houseName: 'this is house ',
+      houseName: 'this is house name ',
       bathroom: 2,
       bedroom: 4,
-      description: 'asdfdsfsdfsdfdsfsdf',
+      description: 'asdfdsfsdf ergre sdfdsfsdf',
       price: 222,
     ),
     HomeDataModel(
       houseName: 'this is house',
       bathroom: 2,
       bedroom: 4,
-      description: 'asdfdsfsdfsdfdsfsdf',
+      description: 'asdfdsfdruey sdfsdfdsfsdf',
       price: 223,
     ),
   ];
@@ -29,6 +32,21 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            ListTile(
+              title: Text('form'),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed(FormPage.routeName);
+              },
+            )
+          ],
+        ),
+      ),
+      appBar: AppBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Container(
           height: 50,
@@ -59,7 +77,9 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppBar(),
+              CustomAppBar(
+                ontap: () {},
+              ),
               Text(
                 "City",
                 style: smallGrey,

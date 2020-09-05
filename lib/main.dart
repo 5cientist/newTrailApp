@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newtrailapp/screens/Form/formpage.dart';
 import 'package:newtrailapp/screens/homepage/homepage.dart';
 
 import 'screens/showall/showalldetails.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         ShowAllDetails.routeName: (context) => ShowAllDetails(),
+        FormPage.routeName: (context) => FormPage(),
       },
       home: HomePage(),
     );

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    Key key,
-  }) : super(key: key);
+  final Function ontap;
+  CustomAppBar({
+    this.ontap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,10 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          CustomIconBtn(customIcon: Icons.menu),
+          GestureDetector(
+            onTap: ontap,
+            child: CustomIconBtn(customIcon: Icons.menu),
+          ),
           CustomIconBtn(customIcon: Icons.search),
         ],
       ),
